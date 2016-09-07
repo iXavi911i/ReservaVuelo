@@ -23,6 +23,7 @@ public Terminal3(Semaphore s, String name, Vuelo v){
     this.s = s;
     this.setName(name);
     this.v = v;
+    //
 }
 
 @Override
