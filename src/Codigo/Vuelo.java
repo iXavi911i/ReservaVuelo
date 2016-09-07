@@ -16,7 +16,7 @@ public class Vuelo {
     public Vuelo(boolean asientosDisponibles[]){
         this.asientosDisponibles = asientosDisponibles;
     }
-    
+    //
     synchronized void reservaAsientos(Pasajero p)
     {
         System.out.println(Thread.currentThread().getName() + " entrando.");
