@@ -22,7 +22,7 @@ Vuelo v;
 public Terminal5(Semaphore s, String name, Vuelo v){
     this.s = s;
     this.setName(name);
-    this.v = v;
+    this.v = v;//
 }
 
 @Override
