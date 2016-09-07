@@ -21,6 +21,7 @@ public class Terminal2 extends Thread {
         this.s = s;
         this.setName(name);
         this.v = v;
+        //
     }
     
     @Override
