@@ -16,7 +16,6 @@ public class Main extends Thread {
     public static void main(String[] args) {
         boolean asientos[] = {true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true};
         Vuelo v = new Vuelo(asientos);
-        //
         Semaphore s = new Semaphore(2,true);
         Terminal1 t1 = new Terminal1(s,"Terminal 1",v);
         Terminal2 t2 = new Terminal2(s,"Terminal 2",v);
