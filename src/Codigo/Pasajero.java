@@ -12,6 +12,7 @@ package Codigo;
 public class Pasajero {
     String nombre;
     int asiento;
+    //
 
     public String getNombre() {
         return nombre;
