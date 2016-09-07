@@ -17,7 +17,7 @@ import java.util.concurrent.Semaphore;
 public class Terminal4 extends Thread {
 String name;
 Semaphore s;
-Vuelo v;
+Vuelo v;//
 
 public Terminal4(Semaphore s, String name, Vuelo v){
     this.s = s;
