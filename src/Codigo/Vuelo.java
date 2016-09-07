@@ -1,10 +1,6 @@
 package Codigo;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.util.Random;
 
 /**
  *
@@ -16,7 +12,7 @@ public class Vuelo {
     public Vuelo(boolean asientosDisponibles[]){
         this.asientosDisponibles = asientosDisponibles;
     }
-    //
+    
     synchronized void reservaAsientos(Pasajero p)
     {
         System.out.println(Thread.currentThread().getName() + " entrando.");
@@ -39,5 +35,9 @@ public class Vuelo {
         }
         System.out.println(Thread.currentThread().getName() + " saliendo.");
         System.out.println("----------------------------------------------");
+    }
+    
+    synchronized int getRandom(){
+        return new Random().nextInt(asientosDisponibles.length);
     }
 }
