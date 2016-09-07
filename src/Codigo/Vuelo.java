@@ -11,19 +11,17 @@ package Codigo;
  * @author Xavi
  */
 public class Vuelo {
-    int asientosDisponibles;
+    boolean asientosDisponibles[];
     
-    public Vuelo(int asientosDisponibles){
+    public Vuelo(boolean asientosDisponibles[]){
         this.asientosDisponibles = asientosDisponibles;
     }
     
-    synchronized void reservaAsientos()
+    synchronized void reservaAsientos(int asiento)
     {
         System.out.println(Thread.currentThread().getName() + " entrando.");
-        System.out.println("Asientos disponibles : " + asientosDisponibles);
-        if (asientosDisponibles > 0)
+        if (asientosDisponibles[asiento])
         {
-            System.out.println("Asientos disponibles)");
             try
             {
                 Thread.sleep(1000);
@@ -32,36 +30,14 @@ public class Vuelo {
             {
                 System.out.println("Thread interrupted");
             }
-            System.out.println("Asiento reservado por " + queTerminal());
-            asientosDisponibles = asientosDisponibles - 1;
+            System.out.println("Asiento " + asiento + " reservado por " + Thread.currentThread().getName());
+            asientosDisponibles[asiento]=false;
         }
         else
         {
-            System.out.println("Asientos solictados no disponibles");
+            System.out.println("Asiento " + asiento + " no disponible");
         }
         System.out.println(Thread.currentThread().getName() + " saliendo.");
         System.out.println("----------------------------------------------");
-    }
-    
-    public String queTerminal(){
-        String terminal;
-        switch (Thread.currentThread().getName()) {
-            case "Thread-0":
-                terminal = "Terminal 1";
-                break;
-            case "Thread-1":
-                terminal = "Terminal 2";
-                break;
-            case "Thread-2":
-                terminal = "Terminal 3";
-                break;
-            case "Thread-3":
-                terminal = "Terminal 4";
-                break;
-            default:
-                terminal = "Terminal 5";
-                break;
-        }
-        return terminal;
     }
 }

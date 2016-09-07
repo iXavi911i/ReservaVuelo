@@ -1,9 +1,5 @@
 package Codigo;
 
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 import java.util.concurrent.Semaphore;
 
 /*
@@ -23,7 +19,7 @@ public class Terminal2 extends Thread {
     
     public Terminal2(Semaphore s, String name, Vuelo v){
         this.s = s;
-        this.name = name;
+        this.setName(name);
         this.v = v;
     }
     
@@ -31,10 +27,10 @@ public class Terminal2 extends Thread {
     public void run(){
         try {
             s.acquire();
-            v.reservaAsientos();
-            v.reservaAsientos();
-            v.reservaAsientos();
-            v.reservaAsientos();
+            v.reservaAsientos(0);
+            v.reservaAsientos(4);
+            v.reservaAsientos(5);
+            v.reservaAsientos(6);
             sleep(1000);
         } catch (Exception e) {
         }finally{

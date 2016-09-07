@@ -21,7 +21,7 @@ Vuelo v;
 
 public Terminal3(Semaphore s, String name, Vuelo v){
     this.s = s;
-    this.name = name;
+    this.setName(name);
     this.v = v;
 }
 
@@ -29,10 +29,10 @@ public Terminal3(Semaphore s, String name, Vuelo v){
 public void run(){
     try {
         s.acquire();
-        v.reservaAsientos();
-        v.reservaAsientos();
-        v.reservaAsientos();
-        v.reservaAsientos();
+        v.reservaAsientos(3);
+        v.reservaAsientos(7);
+        v.reservaAsientos(8);
+        v.reservaAsientos(2);
         sleep(1000);
     } catch (Exception e) {
     }finally{
