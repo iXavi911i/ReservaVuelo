@@ -17,10 +17,10 @@ public class Vuelo {
         this.asientosDisponibles = asientosDisponibles;
     }
     
-    synchronized void reservaAsientos(int asiento)
+    synchronized void reservaAsientos(Pasajero p)
     {
         System.out.println(Thread.currentThread().getName() + " entrando.");
-        if (asientosDisponibles[asiento])
+        if (asientosDisponibles[p.asiento])
         {
             try
             {
@@ -30,12 +30,12 @@ public class Vuelo {
             {
                 System.out.println("Thread interrupted");
             }
-            System.out.println("Asiento " + asiento + " reservado por " + Thread.currentThread().getName());
-            asientosDisponibles[asiento]=false;
+            System.out.println("Asiento " + p.asiento + " reservado por " + p.nombre + " en " + Thread.currentThread().getName());
+            asientosDisponibles[p.asiento]=false;
         }
         else
         {
-            System.out.println("Asiento " + asiento + " no disponible");
+            System.out.println("Asiento " + p.asiento + " no disponible");
         }
         System.out.println(Thread.currentThread().getName() + " saliendo.");
         System.out.println("----------------------------------------------");

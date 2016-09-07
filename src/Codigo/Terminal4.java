@@ -29,10 +29,10 @@ public Terminal4(Semaphore s, String name, Vuelo v){
 public void run(){
     try {
         s.acquire();
-        v.reservaAsientos(9);
-        v.reservaAsientos(1);
-        v.reservaAsientos(10);
-        v.reservaAsientos(11);
+        v.reservaAsientos(new Pasajero("Tono",9));
+        v.reservaAsientos(new Pasajero("Armando",1));
+        v.reservaAsientos(new Pasajero("Nico",11));
+        v.reservaAsientos(new Pasajero("Jade",4));
         sleep(1000);
     } catch (Exception e) {
     }finally{

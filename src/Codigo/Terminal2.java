@@ -27,10 +27,10 @@ public class Terminal2 extends Thread {
     public void run(){
         try {
             s.acquire();
-            v.reservaAsientos(0);
-            v.reservaAsientos(4);
-            v.reservaAsientos(5);
-            v.reservaAsientos(6);
+            v.reservaAsientos(new Pasajero("Pablo",2));
+            v.reservaAsientos(new Pasajero("Escobar",4));
+            v.reservaAsientos(new Pasajero("Daniel",5));
+            v.reservaAsientos(new Pasajero("Pedro",1));
             sleep(1000);
         } catch (Exception e) {
         }finally{
